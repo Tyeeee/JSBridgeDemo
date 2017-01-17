@@ -5,7 +5,6 @@ import android.webkit.WebView;
 
 import com.yjt.bridge.constant.Constant;
 import com.yjt.bridge.exception.JSCallbackException;
-import com.yjt.bridge.thread.Executor;
 
 import org.json.JSONException;
 import org.json.JSONObject;

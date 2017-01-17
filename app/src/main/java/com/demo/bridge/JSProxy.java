@@ -11,7 +11,7 @@ import android.webkit.WebView;
 import android.widget.Toast;
 
 import com.yjt.bridge.JSCallBack;
-import com.yjt.bridge.thread.Executor;
+import com.yjt.bridge.Executor;
 
 import org.json.JSONException;
 import org.json.JSONObject;

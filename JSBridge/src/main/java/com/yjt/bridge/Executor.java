@@ -1,4 +1,4 @@
-package com.yjt.bridge.thread;
+package com.yjt.bridge;
 
 import android.os.Handler;
 import android.os.Looper;

@@ -19,6 +19,6 @@ public class MainActivity extends AppCompatActivity {
         settings.setJavaScriptEnabled(true);
         JSBridge.getInstance().setInjectClass(JSProxy.class).inject();
         webView.setWebChromeClient(new JSBridgeWebviewClient());
-        webView.loadUrl("file:///android_asset/test.html");
+        webView.loadUrl("file:///android_asset/JSBridge.html");
     }
 }
