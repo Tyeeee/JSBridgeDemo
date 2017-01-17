@@ -37,7 +37,7 @@ public class Inject {
         }
     }
 
-    public Inject setInjectClass(Class<?> clazz) {
+    public Inject addInjectClass(Class<?> clazz) {
         if (clazz == null) {
             throw new NullPointerException("Inject:The clazz can not be null!");
         }
@@ -57,7 +57,7 @@ public class Inject {
     }
 
 
-    public Method findMethod(String className, String methodName) {
+    public Method getMethod(String className, String methodName) {
         if (!TextUtils.isEmpty(className) && !TextUtils.isEmpty(methodName)) {
             if (mClassInfo.containsKey(className)) {
                 ArrayMap<String, Method> arrayMap = mClassInfo.get(className);
@@ -73,12 +73,11 @@ public class Inject {
     private void putMethod(Class<?> clazz) {
         if (clazz != null) {
             ArrayMap<String, Method> arrayMap = new ArrayMap<>();
-            Method method;
-            Method[] methods = clazz.getDeclaredMethods();
-            for (int i = 0; i < methods.length; i++) {
-                method = methods[i];
-                int methodModifiers = method.getModifiers();
-                if ((methodModifiers & Modifier.PUBLIC) != 0 && (methodModifiers & Modifier.STATIC) != 0 && method.getReturnType() == void.class) {
+            for (Method method : clazz.getDeclaredMethods()) {
+                if ((method.getModifiers() & Modifier.PUBLIC) != 0 
+                        && (method.getModifiers() & Modifier.STATIC) != 0 
+                        && !TextUtils.isEmpty(method.getName()) 
+                        && method.getReturnType() == void.class) {
                     Class<?>[] parameterTypes = method.getParameterTypes();
                     if (parameterTypes != null && parameterTypes.length == 3) {
                         if (WebView.class == parameterTypes[0] && JSONObject.class == parameterTypes[1] && JSCallBack.class == parameterTypes[2]) {

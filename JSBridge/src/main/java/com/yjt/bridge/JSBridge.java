@@ -22,6 +22,6 @@ public class JSBridge {
     }
 
     public Inject setInjectClass(Class<?> clazz) {
-        return Inject.getInstance().setInjectClass(clazz);
+        return Inject.getInstance().addInjectClass(clazz);
     }
 }

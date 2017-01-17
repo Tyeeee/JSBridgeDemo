@@ -59,7 +59,7 @@ public class JSCall {
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     private void invokeNativeMethod(WebView webView) {
-        Method method = Inject.getInstance().findMethod(mClassName, mMethodName);
+        Method method = Inject.getInstance().getMethod(mClassName, mMethodName);
         JSCallBack callBack = JSCallBack.newInstance(webView, mPort);
         if (method == null) {
             JSCallBack.invokeJSCallBack(callBack, false, null, "Method (" + mMethodName + ") in this class (" + mClassName + ") not found!");

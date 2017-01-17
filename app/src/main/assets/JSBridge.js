@@ -42,7 +42,7 @@
             }
         },
         onNativeComplete: function (port, result) {
-            var resultJson = PrivateMethod.str2Json(result);
+            var resultJson = PrivateMethod.String2Json(result);
             var callback = PrivateMethod.getCallback(port).callback;
             PrivateMethod.unRegisterCallback(port);
             if (callback) {
@@ -53,7 +53,7 @@
         generatePort: function () {
             return Math.floor(Math.random() * (1 << 50)) + '' + increase++;
         },
-        str2Json: function (str) {
+        String2Json: function (str) {
             if (str && typeof str === 'string') {
                 try {
                     return JSON.parse(str);
@@ -80,7 +80,7 @@
             if (PrivateMethod.isAndroid()) {
                 var parameters = PrivateMethod.json2String(param);
                 var uri = PROTOCOL_SCHEMA + "://" + clazz + ":" + port + "/" + method + "?" + parameters;
-                window.prompt(uri, "");
+                window.prompt(uri, PROTOCOL_SCHEMA);
             }
         },
         isAndroid: function () {

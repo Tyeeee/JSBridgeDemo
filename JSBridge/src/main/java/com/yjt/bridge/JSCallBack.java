@@ -59,11 +59,11 @@ public class JSCallBack {
         }
     }
 
-    public static void invokeJSCallBack(JSCallBack callback, boolean isInvokeSuccess, JSONObject resultData, String statusMsg) {
+    public static void invokeJSCallBack(JSCallBack callback, boolean isInvokeSuccess, JSONObject resultData, String message) {
         if (callback == null)
             return;
         try {
-            callback.call(isInvokeSuccess, resultData, statusMsg);
+            callback.call(isInvokeSuccess, resultData, message);
         } catch (JSCallbackException e) {
             e.printStackTrace();
         }
